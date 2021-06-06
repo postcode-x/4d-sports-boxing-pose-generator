@@ -1,0 +1,13 @@
+-- TRAIN.DAT STRUCTURE --
+
+23*2*3 BYTES per body frame (pose) = 138 BYTES
+
+FRAMES    - SIZE        - CYCLE RANGES          - DESCRIPTION		- OFFSETS (DEC)
+
+1 frame   - 138 BYTES 	- 1			- SINGLE BODY POSE	- 0 / 137	
+39 frames - 5382 BYTES  - 20 / 19  		- RIGHT-LEFT PUNCH	- 138 / 5519
+39 frames - 5382 BYTES 	- 13 / 13 / 13 		- JUMPING ROPE		- 5520 / 10901
+35 frames - 4830 BYTES 	- 12 / 13 or 13 / 12 	- PUNCH ROLL		- 10902 / 15732
+
+
+TOTAL FILE SIZE: 15732 BYTES
