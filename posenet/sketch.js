@@ -3,7 +3,6 @@ let poseNet;
 let pose;
 let skeleton;
 let body = [];
-let counter = 0;
 
 function setup() {
     createCanvas(1280,720);
@@ -20,6 +19,11 @@ function gotPoses(poses) {
     pose = poses[0].pose;
     skeleton = poses[0].skeleton;
   }
+}
+
+function modelLoaded() {
+    console.clear();
+    console.log('poseNet ready');
 }
 
 function keyPressed() {
@@ -162,11 +166,6 @@ function mousePressed() {
 function mouseReleased() {
     video.pause(); 
     noLoop();
-}
-
-function modelLoaded() {
-    console.clear();
-    console.log('poseNet ready');
 }
 
 function draw() {
