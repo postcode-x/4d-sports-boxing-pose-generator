@@ -2,12 +2,12 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
-var body = [];
-var counter = 0;
+let body = [];
+let counter = 0;
 
 function setup() {
     createCanvas(1280,720);
-    video = createVideo(['media/pose2.mp4']);
+    video = createVideo(['media/pose.mp4']);
     video.hide();
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
@@ -23,7 +23,7 @@ function gotPoses(poses) {
 }
 
 function keyPressed() {
-    var tmp = []; 
+    let tmp = []; 
     if (keyCode === UP_ARROW) {
         
         // LEFT LEG
@@ -44,7 +44,7 @@ function keyPressed() {
         tmp.push(Math.round(pose.leftHip.y));
         tmp.push(24);
         
-        // HIP CENTER.
+        // HIP CENTER
         
         tmp.push(Math.round(0.5*(pose.leftHip.x + pose.rightHip.x)));
         tmp.push(Math.round(0.5*(pose.leftHip.y + pose.rightHip.y)));
@@ -70,12 +70,12 @@ function keyPressed() {
 
         // MID POINT UPPER BACK
         
-        var midpointshoulderx = Math.round(0.5*(pose.rightShoulder.x + pose.leftShoulder.x));
-        var midpointshouldery = Math.round(0.5*(pose.rightShoulder.y + pose.leftShoulder.y));
-        var midpointhipsx = Math.round(0.5*(pose.leftHip.x + pose.rightHip.x));
-        var midpointhipsy = Math.round(0.5*(pose.leftHip.y + pose.rightHip.y));
+        let midpointshoulderx = Math.round(0.5*(pose.rightShoulder.x + pose.leftShoulder.x));
+        let midpointshouldery = Math.round(0.5*(pose.rightShoulder.y + pose.leftShoulder.y));
+        let midpointhipsx = Math.round(0.5*(pose.leftHip.x + pose.rightHip.x));
+        let midpointhipsy = Math.round(0.5*(pose.leftHip.y + pose.rightHip.y));
         
-        // MID BODY BACK
+        // MID POINT BACK
         
         tmp.push(Math.round(0.5*(midpointshoulderx + midpointhipsx)));
         tmp.push(Math.round(0.5*(midpointshouldery + midpointhipsy)));
@@ -90,13 +90,13 @@ function keyPressed() {
         
         // ** UNIT VECTOR SETUP FOR HEAD X-Y AXIS POSITIONING **
         
-        var xcomponent = midpointshoulderx -  0.5*(midpointshoulderx + midpointhipsx);
-        var ycomponent = midpointshouldery -  0.5*(midpointshouldery + midpointhipsy);
+        let xcomponent = midpointshoulderx -  0.5*(midpointshoulderx + midpointhipsx);
+        let ycomponent = midpointshouldery -  0.5*(midpointshouldery + midpointhipsy);
         
-        var magnitude = mag(xcomponent, ycomponent);
+        let magnitude = mag(xcomponent, ycomponent);
         
-        var xunit = xcomponent / magnitude;
-        var yunit = ycomponent / magnitude;
+        let xunit = xcomponent / magnitude;
+        let yunit = ycomponent / magnitude;
         
         // ** END UNIT VECTOR SETUP **
  
