@@ -23,7 +23,7 @@ function gotPoses(poses) {
 
 function modelLoaded() {
     console.clear();
-    console.log('poseNet ready');
+    console.log('PoseNet ready');
 }
 
 function keyPressed() {
@@ -116,22 +116,22 @@ function keyPressed() {
         
         tmp.push(Math.round(pose.rightShoulder.x));
         tmp.push(Math.round(pose.rightShoulder.y));
-        tmp.push(16);
+        tmp.push(33);
         tmp.push(Math.round(pose.rightElbow.x));
         tmp.push(Math.round(pose.rightElbow.y));
-        tmp.push(4);
+        tmp.push(36);
         tmp.push(Math.round(pose.rightWrist.x));
         tmp.push(Math.round(pose.rightWrist.y));
-        tmp.push(-7);
+        tmp.push(38);
         tmp.push(Math.round(pose.rightWrist.x));
         tmp.push(Math.round(pose.rightWrist.y));
-        tmp.push(-21);
+        tmp.push(38);
         
         // LEFT ARM
         
         tmp.push(Math.round(pose.leftShoulder.x));
         tmp.push(Math.round(pose.leftShoulder.y));
-        tmp.push(26);
+        tmp.push(32);
         tmp.push(Math.round(pose.leftElbow.x));
         tmp.push(Math.round(pose.leftElbow.y));
         tmp.push(34);
@@ -140,7 +140,7 @@ function keyPressed() {
         tmp.push(37);
         tmp.push(Math.round(pose.leftWrist.x));
         tmp.push(Math.round(pose.leftWrist.y));
-        tmp.push(29);
+        tmp.push(37);
         
         // HEAD VECTOR
         
